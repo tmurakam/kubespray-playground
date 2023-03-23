@@ -10,16 +10,6 @@ Vagrant.configure("2") do |config|
     vb.cpus = 2
   end
 
-  config.vm.define "installer" do |c|
-    c.vm.hostname = "installer"
-    c.vm.network "private_network", ip: "192.168.56.60"
-    c.vm.provider "virtualbox" do |vb|
-      vb.memory = "2048"
-      vb.cpus = 2
-    end
-    c.vm.synced_folder ".", "/home/vagrant/kubespray-playground", owner: "vagrant", group: "vagrant"
-  end
-
   config.vm.define "master" do |c|
     c.vm.hostname = "master"
     c.vm.network "private_network", ip: "192.168.56.61"
