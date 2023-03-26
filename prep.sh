@@ -10,7 +10,7 @@ cd $KUBESPRAY_DIR
 # Copy public key to all nodes
 for node in $NODES; do
     ssh-keygen -R $node
-    sshpass -pvagrant ssh-copy-id -oStrictHostKeyChecking=no vagrant@$node
+    sshpass -p$PASSWORD ssh-copy-id -oStrictHostKeyChecking=no $USER@$node
 done
 
 # Install ansible

@@ -9,4 +9,4 @@ fi
 cd $KUBESPRAY_DIR
 
 # Run kubespray
-ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root -u vagrant cluster.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root -u $USER cluster.yml $*

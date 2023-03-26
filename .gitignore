@@ -7,3 +7,4 @@ kubespray*/
 cache/
 .vagrant/
 .venv/
+config.custom.sh
