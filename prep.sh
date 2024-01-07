@@ -1,6 +1,6 @@
 #!/bin/bash
 source config.sh
-KUBESPRAY_DIR=./kubespray-${KUBESPRAY_VERSION}
+KUBESPRAY_DIR=${KUBESPRAY_DIR:-./kubespray-${KUBESPRAY_VERSION}}
 
 if [ ! -e $KUBESPRAY_DIR ]; then
     ./get-kubespray.sh || exit 1
