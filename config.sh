@@ -5,13 +5,13 @@ if [ -e ./config.custom.sh ]; then
 fi
 
 # If you already prepared kubespray directory, set this
-#KUBESPRAY_DIR=
+#KUBESPRAY_DIR=./kubespray
 
 # Otherwise set kubespray version
 KUBESPRAY_VERSION=${KUBESPRAY_VERSION:-2.23.1}
 
 # For vagrant
 NODES=${NODES:-"192.168.56.61 192.168.56.62"}
-USER=${USER:-vagrant}
-PASSWORD=${PASSWORD:-vagrant}
+SSH_USER=${SSH_USER:-vagrant}
+SSH_PASSWORD=${SSH_PASSWORD:-vagrant}
 
