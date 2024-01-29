@@ -10,7 +10,7 @@ cd $KUBESPRAY_DIR
 # Copy public key to all nodes
 for node in $NODES; do
     ssh-keygen -R $node
-    sshpass -p$PASSWORD ssh-copy-id -oStrictHostKeyChecking=no $SSH_USER@$node
+    sshpass -p$SSH_PASSWORD ssh-copy-id -oStrictHostKeyChecking=no $SSH_USER@$node
 done
 
 # Install ansible
