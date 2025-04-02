@@ -1,5 +1,9 @@
 #!/bin/bash
 source config.sh
+CURDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+pip install -r requirements.txt
+
 KUBESPRAY_DIR=${KUBESPRAY_DIR:-./kubespray-${KUBESPRAY_VERSION}}
 
 if [ ! -e $KUBESPRAY_DIR ]; then
@@ -22,6 +26,6 @@ if [ ! -d inventory/mycluster ]; then
 fi
 
 # Update Ansible inventory file with inventory builder
-CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py $NODES
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 ${CURDIR}/inventory_builder/inventory.py $NODES
 
 cat inventory/mycluster/hosts.yaml
