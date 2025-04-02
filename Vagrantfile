@@ -2,7 +2,13 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/ubuntu2204"
+  #config.vm.box = "generic/ubuntu2004"
+  #config.vm.box = "generic/ubuntu2204"
+  config.vm.box = "generic/ubuntu2404"
+  #config.vm.box = "bento/almalinux-8"
+  #config.vm.box = "generic/rocky8"
+  #config.vm.box = "generic/rocky9"
+  
   config.ssh.insert_key = false
 
   config.vm.provider "virtualbox" do |vb|
