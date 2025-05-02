@@ -18,6 +18,14 @@ if [ -e ${KUBESPRAY_DIR} ]; then
     exit 0
 fi
 
+if [ $KUBESPRAY_VERSION == "master" ] || [[ $KUBESPRAY_VERSION =~ ^release- ]]; then
+    echo "===> Checkout kubespray branch : $KUBESPRAY_VERSION"
+    if [ ! -e ${KUBESPRAY_DIR} ]; then
+        git clone -b $KUBESPRAY_VERSION https://github.com/kubernetes-sigs/kubespray.git ${KUBESPRAY_DIR}
+    fi
+    exit 0
+fi
+
 if [ ! -e cache/${KUBESPRAY_TARBALL} ]; then
     echo "===> Download ${KUBESPRAY_TARBALL}"
     curl -SL https://github.com/kubernetes-sigs/kubespray/archive/refs/tags/v${KUBESPRAY_VERSION}.tar.gz >cache/${KUBESPRAY_TARBALL} || exit 1
