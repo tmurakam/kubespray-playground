@@ -25,6 +25,10 @@ prep.sh では以下が行われる。
 * Ansible インストール
 * inventoryファイル作成
 
+Note: Kubespray は config.sh で指定されたバージョンが自動でダウンロード・展開されるが、
+展開済みの Kubespray (git clone したものなど)を使いたい場合は、config.sh の
+`KUBESPRAY_DIR` でディレクトリを指定すればよい。
+
 kubespray を実行
 
     $ ./do-kubespray.sh
