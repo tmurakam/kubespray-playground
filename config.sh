@@ -8,7 +8,7 @@ fi
 #KUBESPRAY_DIR=./kubespray
 
 # Otherwise set kubespray version
-KUBESPRAY_VERSION=${KUBESPRAY_VERSION:-2.27.0}
+KUBESPRAY_VERSION=${KUBESPRAY_VERSION:-2.28.1}
 #KUBESPRAY_VERSION=${KUBESPRAY_VERSION:-"master"}
 
 # For vagrant
