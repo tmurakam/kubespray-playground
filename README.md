@@ -1,11 +1,16 @@
 # Kubernetes playground
 
+# 必要環境
+
+* Vagrant
+* Python venv 環境
+
 # 使い方
 
 `config.sh` を確認し、設定を行う。
 カスタマイズする場合は `config.custom.sh` に入れておけばよい。
 
-master, worker ノードを起動
+control plane ノードを起動
 
     $ vagrant up
 
@@ -24,7 +29,7 @@ kubespray を実行
 
     $ ./do-kubespray.sh
 
-Master ノードにログインする
+Control plane ノードにログインする
 
     $ ssh vagrant@192.168.56.61
 
