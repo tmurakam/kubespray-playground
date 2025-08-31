@@ -9,4 +9,5 @@ fi
 cd $KUBESPRAY_DIR
 
 # Run kubespray
+export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3
 ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root -u $SSH_USER cluster.yml $*
