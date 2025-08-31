@@ -7,7 +7,10 @@ pip install -r requirements.txt
 KUBESPRAY_DIR=${KUBESPRAY_DIR:-./kubespray-${KUBESPRAY_VERSION}}
 
 if [ ! -e $KUBESPRAY_DIR ]; then
+    echo "==> Get kubespray"
     ./get-kubespray.sh || exit 1
+else
+    echo "==> A $KUBESPRAY_DIR already exists, skip getting kubespray"
 fi
 cd $KUBESPRAY_DIR
 
@@ -23,7 +26,10 @@ pip install -r requirements.txt || exit 1
 
 # create inventory dir
 if [ ! -d inventory/mycluster ]; then
+    echo "==> Create inventory/mycluster"
     cp -rfp inventory/sample inventory/mycluster
+else
+    echo "==> A inventory/mycluster directory exists, skip creation."
 fi
 
 # Update Ansible inventory file with inventory builder
