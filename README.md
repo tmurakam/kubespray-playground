@@ -37,18 +37,15 @@ kubespray を実行
 
     $ ./do-kubespray.sh
 
+Control plane ノードで ~/.kube/config ファイルを投入する
+
+    $ ./setup-kubeconfig.sh
+
 Control plane ノードにログインする
 
     $ ssh vagrant@192.168.56.61
 
-kubectl 設定ファイルを用意
-
-```
-mkdir ~/.kube
-sudo cat /etc/kubernetes/admin.conf > ~/.kube/config
-```
-
-これで kubectl が使えるようになる
+kubectl が使えるようになっていることを確認する
 
 # Proxy server
 
