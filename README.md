@@ -49,3 +49,13 @@ sudo cat /etc/kubernetes/admin.conf > ~/.kube/config
 ```
 
 これで kubectl が使えるようになる
+
+# Proxy server
+
+Internet 接続に Proxy server を経由する場合は以下のようにする。
+
+prep.sh 実行前に http_proxy, https_proxy, no_proxy 環境変数を設定しておく。
+これにより、inventory/mycluster/group_vars/all/proxy.yml に Proxy設定が書き出される。
+
+また、Vagrant を使用する場合は vagrant-proxyconf をインストールしておくこと。
+詳細は Vagrantfile の一番下を参照
