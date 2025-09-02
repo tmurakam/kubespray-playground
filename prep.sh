@@ -40,8 +40,9 @@ cat inventory/mycluster/hosts.yaml
 # Setup proxy config
 if [ -n "$http_proxy" ]; then
     cat <<EOF >inventory/mycluster/group_vars/all/proxy.yml
+---
 http_proxy: $http_proxy
 https_proxy: $https_proxy
-additional_no_proxy: $no_proxy   
+additional_no_proxy: $no_proxy
 EOF
 fi
