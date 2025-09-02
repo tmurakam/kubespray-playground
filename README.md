@@ -13,6 +13,10 @@
 control plane ノードを起動
 
     $ vagrant up
+    
+    # libvert を使う場合
+    $ vagrant up --provider=libvirt
+
 
 準備を行う
 
@@ -39,7 +43,9 @@ Control plane ノードにログインする
 
 kubectl 設定ファイルを用意
 
-    $ mkdir ~/.kube
-    $ sudo cat /etc/kubernetes/admin.conf > ~/.kube/config
+```
+mkdir ~/.kube
+sudo cat /etc/kubernetes/admin.conf > ~/.kube/config
+```
 
 これで kubectl が使えるようになる

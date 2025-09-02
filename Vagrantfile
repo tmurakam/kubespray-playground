@@ -9,8 +9,13 @@ Vagrant.configure("2") do |config|
   
   config.ssh.insert_key = false
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.memory = "4096"
+  config.vm.provider :virtualbox do |vb|
+    vb.memory = 4096
+    vb.cpus = 2
+  end
+  
+  config.vm.provider :libvirt do |vb|
+    vb.memory = 4096
     vb.cpus = 2
   end
 
