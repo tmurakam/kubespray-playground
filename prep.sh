@@ -37,6 +37,9 @@ CONFIG_FILE=inventory/mycluster/hosts.yaml python3 ${CURDIR}/inventory_builder/i
 
 cat inventory/mycluster/hosts.yaml
 
+# Enable netchecker
+sed -i 's/^deploy_netchecker: .*$/deploy_netchecker: true/' inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+
 # Setup proxy config
 if [ -n "$http_proxy" ]; then
     cat <<EOF >inventory/mycluster/group_vars/all/proxy.yml
