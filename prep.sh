@@ -25,14 +25,15 @@ if [ -d inventory/mycluster ]; then
             /bin/rm -rf inventory/mycluster
             ;;
         *)
-            echo "Cancelled."
-            exit 1
+            echo "==> Keep current inventry/mycluster."
             ;;
     esac
 fi
 
-echo "==> Create inventory/mycluster"
-cp -rfp inventory/sample inventory/mycluster
+if [ ! -d inventory/mycluster ]; then
+    echo "==> Create inventory/mycluster"
+    cp -rfp inventory/sample inventory/mycluster
+fi
 
 # Copy public key to all nodes
 for node in $NODES; do
