@@ -14,6 +14,26 @@ else
 fi
 cd $KUBESPRAY_DIR
 
+# create inventory dir
+if [ -d inventory/mycluster ]; then
+    echo
+    echo "A inventory/mycluster directory exists. Remove? [y/N]"
+    read -r ans
+    case "$ans" in
+        [yY])
+            echo "==> Remove inventry/mycluster."
+            /bin/rm -rf inventory/mycluster
+            ;;
+        *)
+            echo "Cancelled."
+            exit 1
+            ;;
+    esac
+fi
+
+echo "==> Create inventory/mycluster"
+cp -rfp inventory/sample inventory/mycluster
+
 # Copy public key to all nodes
 for node in $NODES; do
     ssh-keygen -R $node
@@ -23,14 +43,6 @@ done
 
 # Install ansible
 pip install -r requirements.txt || exit 1
-
-# create inventory dir
-if [ ! -d inventory/mycluster ]; then
-    echo "==> Create inventory/mycluster"
-    cp -rfp inventory/sample inventory/mycluster
-else
-    echo "==> A inventory/mycluster directory exists, skip creation."
-fi
 
 # Update Ansible inventory file with inventory builder
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 ${CURDIR}/inventory_builder/inventory.py $NODES
