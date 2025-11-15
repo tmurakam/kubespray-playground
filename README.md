@@ -10,13 +10,14 @@
 `config.sh` を確認し、設定を行う。
 カスタマイズする場合は `config.custom.sh` に入れておけばよい。
 
-control plane ノードを起動
+マルチノード(3ノード)構成にする場合は、MULTI_NODE を true にセットしておく。
+
+ノードを起動
 
     $ vagrant up
     
     # libvert を使う場合
     $ vagrant up --provider=libvirt
-
 
 準備を行う
 
@@ -37,11 +38,11 @@ kubespray を実行
 
     $ ./do-kubespray.sh
 
-Control plane ノードで ~/.kube/config ファイルを投入する
+Node1 ノードで ~/.kube/config ファイルを投入する
 
     $ ./setup-kubeconfig.sh
 
-Control plane ノードにログインする
+Node1 ノードにログインする
 
     $ ssh vagrant@192.168.56.61
 
